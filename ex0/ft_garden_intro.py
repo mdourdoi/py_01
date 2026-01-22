@@ -7,8 +7,8 @@ def ft_garden_intro(plant: str, height: int, age: int):
 
 if __name__ == "__main__":
     print("=== Welcome to My Garden ===")
-    plant = "rose"
+    name = "rose"
     height = 25
     age = 30
-    ft_garden_intro(plant, height, age)
+    ft_garden_intro(name, height, age)
     print("\n=== End of Program ===")

@@ -11,10 +11,9 @@ class Plant:
         """Adds growth to the current size"""
         self.height += growth
 
-    def age_days(self, days: int, growth: int):
-        """Adds days to the current age and grow the plant at growth per day"""
+    def age_days(self, days: int):
+        """Adds days to the current age"""
         self.age += days
-        self.grow(growth)
 
     def get_info(self):
         """Displays information about the plant"""
@@ -25,14 +24,15 @@ class Plant:
 if __name__ == "__main__":
     rose = Plant("rose", 25, 30)
     sunflower = Plant("sunflower", 80, 45)
-    rose_growth = 1
+    rose_growth = 6
     sunflower_growth = 12
-    growth_speed = 6
     for i in (1, 7):
         print(f"=== Day {i} ===")
         rose.get_info()
         sunflower.get_info()
-        rose.age_days(7, rose_growth)
-        sunflower.age_days(7, sunflower_growth)
+        rose.age_days(7)
+        rose.grow(rose_growth)
+        sunflower.age_days(7)
+        sunflower.grow(sunflower_growth)
         if (i == 7):
             print(f"Growth this week: +{rose_growth + sunflower_growth}cm")
