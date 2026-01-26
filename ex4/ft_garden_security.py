@@ -61,4 +61,6 @@ if __name__ == "__main__":
     print()
     rose.set_height(-5)
     print()
+    rose.set_age(-5)
+    print()
     rose.get_info()

@@ -18,7 +18,7 @@ class Plant:
     def get_info(self):
         """Displays information about the plant"""
         name_cap = self.name.capitalize()
-        print(f"{name_cap}: {self.height} cm, {self.age} days old")
+        print(f"{name_cap}: {self.height}cm, {self.age} days old")
 
 
 if __name__ == "__main__":

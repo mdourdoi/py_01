@@ -4,19 +4,19 @@ class Plant:
     def __init__(self, name: str, height: int, age: int):
         """Initializes the plant with secured data"""
         self.__name = name
-        if (height >= 0 and age >= 0):
+        self.__type = "plant"
+        if (height >= 0):
             self.__height = height
-            self.__age = age
-            self.__type = "plant"
         else:
-            if (height < 0):
-                print(f"Invalid initialization attempted : height {height}cm")
-                self.__height = 0
-                print("Security : height can't be negative, set to 0")
-            if (age < 0):
-                print(f"Invalid initialization attempted : age {age}")
-                self.__age = 0
-                print("Security : age can't be negative, set to 0")
+            print(f"Invalid initialization attempted : height {height}cm")
+            self.__height = 0
+            print("Security : height can't be negative, set to 0")
+        if (age >= 0):
+            self.__age = age
+        else:
+            print(f"Invalid initialization attempted : age {age}")
+            self.__age = 0
+            print("Security : age can't be negative, set to 0")
 
     def get_name(self):
         """Secures the access to the name"""
@@ -141,7 +141,7 @@ class Tree(Plant):
         """Displays info about the tree"""
         diameter = self.get_trunk_diameter()
         type = self.get_type().capitalize()
-        print(super().get_info(0, type), f"{diameter}cm diameter")
+        print(f"{super().get_info(0, type)}, {diameter}cm diameter")
 
 
 class Vegetable(Plant):
@@ -185,7 +185,7 @@ class Vegetable(Plant):
         type = self.get_type().capitalize()
         name = self.get_name().capitalize()
         value = self.get_nutritional_value()
-        print(super().get_info(0, type), f"{season} harvest")
+        print(f"{super().get_info(0, type)}, {season} harvest")
         print(f"{name} is rich in {value}")
 
 

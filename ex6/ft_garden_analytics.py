@@ -74,7 +74,7 @@ class Plant:
 
     def get_info(self, display=1, kind="plant"):
         name = self.__name.capitalize()
-        ret = f"{name} ({kind}): {self.__height}cm, {self.__age} days"
+        ret = f"{name}: {self.__height}cm"
         if (display):
             print(ret)
         return (ret)
@@ -117,12 +117,12 @@ class FloweringPlant(Plant):
         color = self.get_color()
         kind = self.get_type().capitalize()
         if (self.get_bloom()):
-            ret = f"{super().get_info(0, kind)} {color} color (bloomed)"
+            ret = f"{super().get_info(0, kind)} {color} (bloomed)"
             if (display):
                 print(ret)
             return (ret)
         else:
-            ret = f"{super().get_info(0, kind)} {color} color (blooming)"
+            ret = f"{super().get_info(0, kind)}, {color} (blooming)"
             if (display):
                 print(ret)
             return (ret)
@@ -415,22 +415,20 @@ class GardenManager:
 
 if __name__ == "__main__":
     print("=== Garden Management System Demo ===\n")
-
-    # Gardens
     alice = Garden("Alice")
     bob = Garden("Bob")
 
     # Manager (via classmethod)
     manager = GardenManager.create_garden_network(alice, bob)
 
-    # Plants for Alice
+    # Plants building
     oak = Plant("Oak Tree", 100, 30)
     rose = FloweringPlant("Rose", 25, 12, "red flowers", False)
     sunflower = PrizeFlower("Sunflower", 50, 14, "yellow flowers", False, 218)
     orchid = PrizeFlower("Orchid", 60, 20, "blue flowers", True, 46)
     tulip = PrizeFlower("Tulip", 10, 5, "gold flowers", True, 46)
 
-    # Add to Alice
+    # Add to Alice's garden
     manager.add_plants_to_garden(alice, oak, rose, sunflower, flag=1)
     manager.add_plants_to_garden(bob, orchid, tulip)
     print()
